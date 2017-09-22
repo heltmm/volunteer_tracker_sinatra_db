@@ -36,6 +36,8 @@ class Project
 
   def delete
     DB.exec("DELETE FROM projects WHERE id = #{@id}")
+    unassigned_id = Project.search("Unassigned").id
+    DB.exec("UPDATE volunteers SET project_id = #{unassigned_id} WHERE project_id = #{@id}")
   end
 
   def volunteers
@@ -48,7 +50,7 @@ class Project
   end
 
   def self.search(title)
-    found_project = DB.exec("SELECT * FROM projects WHERE title = '#{title}';").first
+    found_project = DB.exec("SELECT * FROM projects WHERE title = '#{title}'").first
     Project.new({title: found_project['title'], id: found_project['id'].to_i})
   end
 

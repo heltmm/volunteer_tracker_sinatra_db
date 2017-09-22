@@ -34,3 +34,14 @@ post('/volunteer') do
   Volunteer.new({:name => params['name'], :project_id => params['project_id']}).save
   redirect('/')
 end
+
+get('/project/:name') do
+  @project = Project.search(params[:name])
+  erb(:project)
+end
+
+post('/delete/:id') do
+  project = Project.find(params[:id])
+  project.delete
+  redirect('/')
+end
