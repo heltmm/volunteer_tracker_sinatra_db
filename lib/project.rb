@@ -27,4 +27,11 @@ class Project
     Project.new({title: found_project['title'], id: found_project['id'].to_i})
   end
 
+  def update(update_hash)
+    @title = update_hash[:title]
+  end
+
+  def delete
+
+  end
 end
