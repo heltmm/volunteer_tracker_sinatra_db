@@ -1,8 +1,9 @@
 <h1>Volunteer: <%= @volunteer.name %></h1>
-
 <form class="" action="/volunteer/delete/<%= @volunteer.id %>" method="post">
-  <button type="submit" class="btn btn-danger">Delete</button>
+  <button type="submit" class="btn btn-danger btn-block">Delete</button>
 </form>
+
+
 
 <h2>Curretnly Assigned to:</h2><br>
 
@@ -20,3 +21,10 @@
   </div>
   <button type="submit" class="btn btn-primary btn-block">Join the Project</button>
 </form>
+
+<form action="/volunteer/update/<%= @volunteer.id %>" method="post">
+  <input type="hidden" name="project_id" value="<%= @volunteer.project_id %>">
+  <label for="name">Enter name</label>
+  <input type="text" name="name" class="form-control">
+  <button type="submit" class="btn btn-success btn-block">Update Volunteer</button>
+</form><br>

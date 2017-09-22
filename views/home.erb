@@ -3,10 +3,10 @@
     <h2>Current Projects</h2>
     <ol>
     <% @projects.each do |project| %>
-      <a href="/project/<%= project.id %>"><li><%= project.title %></li></a>
+      <a href="/projects/<%= project.id %>"><li><%= project.title %></li></a>
     <% end %>
     </ol>
-    <form action="/project" method="post">
+    <form action="/projects" method="post">
       <div class="form-group">
         <label for="title">Enter name of Project</label>
         <input type="text" name="title" class="form-control">
@@ -19,7 +19,7 @@
     <ol>
     <% @volunteers.each do |volunteer| %>
 
-      <a href="/volunteer/<%= volunteer.id %>"><li><%= volunteer.name %> <%= Project.find(volunteer.project_id).title %></li></a>
+      <li><a href="/volunteer/<%= volunteer.id %>"><%= volunteer.name %></a> <%= Project.find(volunteer.project_id).title %></li>
     <% end %>
     </ol>
     <form action="/volunteer" method="post">

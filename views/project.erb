@@ -1,14 +1,10 @@
 
   <h1><%= @project.title %></h1>
   <div class="row">
-    <form action="/project/delete/<%=@project.id%>" method="post">
-      <button type="submit" class="btn btn-danger">Delete</button>
-    </form>
 
-    <form action="/project/update/<%=@project.id%>" method="post">
-      <input type="text" name="title">
-      <button type="submit" class="btn btn-warning">Update</button>
-    </form>
+      <a href="/projects/<%=@project.id%>/edit"><button type="submit" class="btn btn-warning">Edit Project</button></a>
+
+
   </div>
   <h2>Volunteers:</h2>
   <ol>

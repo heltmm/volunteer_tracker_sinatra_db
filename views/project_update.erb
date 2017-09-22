@@ -1,0 +1,9 @@
+<h1><%= @project.title %></h1>
+<div class="row">
+  <form action="/projects/delete/<%=@project.id%>" method="post">
+    <button type="submit" class="btn btn-danger">Delete Project</button>
+  </form>
+  <form action="/projects/<%=@project.id%>/edit" method="post">
+    <input type="text" name="title">
+    <button type="submit" class="btn btn-warning">Update Project</button>
+  </form>
