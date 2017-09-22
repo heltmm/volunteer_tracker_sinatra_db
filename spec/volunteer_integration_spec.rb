@@ -12,7 +12,6 @@ set(:show_exceptions, false)
 
 describe 'the project creation path', {:type => :feature} do
   it 'takes the user to the homepage where they can create a project' do
-    Project.new({:title => "Unassigned"}).save
     visit '/'
     fill_in('title', :with => 'Teaching Kids to Code')
     click_button('Create new Project')
@@ -24,7 +23,6 @@ end
 
 describe 'the project update path', {:type => :feature} do
   it 'allows a user to change the name of the project' do
-    Project.new({:title => "Unassigned"}).save
     test_project = Project.new({:title => 'Teaching Kids to Code'})
     test_project.save
     visit '/'
@@ -40,7 +38,6 @@ end
 
 describe 'the project delete path', {:type => :feature} do
   it 'allows a user to delete a project' do
-    Project.new({:title => "Unassigned"}).save
     test_project = Project.new({:title => 'Teaching Kids to Code'})
     test_project.save
     id = test_project.id
@@ -55,7 +52,6 @@ end
 
 describe 'the volunteer detail page path', {:type => :feature} do
   it 'shows a volunteer detail page' do
-    Project.new({:title => "Unassigned"}).save
     test_project = Project.new({:title => 'Teaching Kids to Code'})
     test_project.save
     project_id = test_project.id.to_i
