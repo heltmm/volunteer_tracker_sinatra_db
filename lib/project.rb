@@ -22,5 +22,9 @@ class Project
     self.id.==(another_project.id) and self.title.==(another_project.title)
   end
 
+  def self.find(id)
+    found_project = DB.exec("SELECT * FROM projects WHERE id = #{id}").first
+    Project.new({title: found_project['title'], id: found_project['id'].to_i})
+  end
 
 end
