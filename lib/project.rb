@@ -9,7 +9,7 @@ class Project
     returned_projects = DB.exec("SELECT * FROM projects")
     projects = []
     returned_projects.each do |project|
-      projects.push(Project.new({title: project['title'], id: project['id']}))
+      projects.push(Project.new({title: project['title'], id: project['id'].to_i}))
     end
     projects
   end
@@ -18,8 +18,8 @@ class Project
     @id = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}') RETURNING ID").first['id'].to_i
   end
 
-  def ==
-
+  def ==(another_project)
+    self.id.==(another_project.id) and self.title.==(another_project.title)
   end
 
 
