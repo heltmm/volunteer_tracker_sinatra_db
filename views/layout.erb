@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Volunteer Tracker</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <a class="navbar-brand" href="\home">Volunteer Tracker</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div id="main" class="container">
+    <%= yield %>
+    </div>
+    <footer class="footer navbar-dark bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <a id="link-text" href="/admin">Administrative Settings</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+</html>

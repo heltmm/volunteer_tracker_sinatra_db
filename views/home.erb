@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-6">
+    <h2>Current Projects</h2>
+    <ol>
+    <% @projects.each do |project| %>
+      <li><%= project.title %></li>
+    <% end %>
+    </ol>
+    <form action="/project" method="post">
+      <div class="form-group">
+        <label for="name">Enter name of Project</label>
+        <input type="text" name="title" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Create new Project</button>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <h2>Volunteers</h2>
+    <ol>
+    <% @volunteers.each do |volunteer| %>
+      <li><%= volunteer.name %> <%= Project.find(volunteer.project_id).title %></li>
+    <% end %>
+    </ol>
+    <form action="/volunteer" method="post">
+      <div class="form-group">
+        <label for="name">Enter name of Volunteer</label>
+        <input type="text" name="name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="project_id">Select Project to Volunteer for</label>
+        <select class="form-control" name='project_id' type='text'>
+          <option value='nil'>Not Sure</option>
+          <% @projects.each() do |project| %>
+            <option value="<%= project.id %>"> <%= project.title %> </option>
+          <% end %>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Create new Volunteer</button>
+    </form>
+  </div>
+</div>
