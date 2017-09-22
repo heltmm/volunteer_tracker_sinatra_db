@@ -1,11 +1,17 @@
-<h1>Volunteer: <%= @volunteer.name %></h1><br>
+<h1>Volunteer: <%= @volunteer.name %></h1>
+
+<form class="" action="/volunteer/delete/<%= @volunteer.id %>" method="post">
+  <button type="submit" class="btn btn-danger">Delete</button>
+</form>
 
 <h2>Curretnly Assigned to:</h2><br>
-<h2><%= Project.find(@volunteer.id).title%></h2><br>
+
+<h2><%= Project.find(@volunteer.project_id).title%></h2><br>
 
 <form action="/volunteer/<%= @volunteer.id %>" method="post">
   <div class="form-group">
     <label for="project_id">Assign to Project</label>
+    <input type="hidden" name="name" value="<%= @volunteer.name %>">
     <select class="form-control" name='project_id' type='text'>
       <% @projects.each() do |project| %>
         <option value="<%= project.id %>"> <%= project.title %> </option>
@@ -13,5 +19,4 @@
     </select>
   </div>
   <button type="submit" class="btn btn-primary btn-block">Join the Project</button>
-
 </form>

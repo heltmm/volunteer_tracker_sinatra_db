@@ -54,8 +54,8 @@ get('/volunteer/:id') do
 end
 
 post('/volunteer/:id') do
-  
   @projects = Project.all
   @volunteer = Volunteer.find(params[:id])
+  @volunteer.update({:name => params['name'], :project_id => params['project_id']})
   erb(:volunteer)
 end
