@@ -1,5 +1,6 @@
 class Project
   attr_reader :title, :id
+
   def initialize(project_hash)
     @title = project_hash[:title]
     @id = project_hash[:id]
@@ -32,6 +33,6 @@ class Project
   end
 
   def delete
-
+    DB.exec("DELETE FROM projects WHERE id = #{@id}")
   end
 end
