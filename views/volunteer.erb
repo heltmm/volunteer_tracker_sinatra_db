@@ -5,9 +5,9 @@
 
 
 
-<h2>Curretnly Assigned to:</h2><br>
+<h2>Currently Assigned to:</h2><br>
 
-<h2><%= Project.find(@volunteer.project_id).title%></h2><br>
+<h3 class="color"><%= Project.find(@volunteer.project_id).title%></h3><br>
 
 <form action="/volunteer/update/<%= @volunteer.id %>" method="post">
   <div class="form-group">
