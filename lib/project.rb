@@ -35,9 +35,9 @@ class Project
   end
 
   def delete
-    DB.exec("DELETE FROM projects WHERE id = #{@id}")
     unassigned_id = Project.search("Unassigned").id
     DB.exec("UPDATE volunteers SET project_id = #{unassigned_id} WHERE project_id = #{@id}")
+    DB.exec("DELETE FROM projects WHERE id = #{@id}")
   end
 
   def volunteers

@@ -9,6 +9,7 @@ require 'pg'
 
 DB = PG.connect({dbname: 'volunteer_tracker'})
 
+#seed database with an unassgined project that will not show up on page
 Project.new({:title => "Unassigned"}).save
 
 get ('/') do
@@ -35,8 +36,8 @@ post('/volunteer') do
   redirect('/')
 end
 
-get('/project/:name') do
-  @project = Project.search(params[:name])
+get('/project/:id') do
+  @project = Project.find(params[:id])
   erb(:project)
 end
 

@@ -3,7 +3,7 @@
     <h2>Current Projects</h2>
     <ol>
     <% @projects.each do |project| %>
-      <a href="/project/<%= project.title %>"><li><%= project.title %></li></a>
+      <a href="/project/<%= project.id %>"><li><%= project.title %></li></a>
     <% end %>
     </ol>
     <form action="/project" method="post">

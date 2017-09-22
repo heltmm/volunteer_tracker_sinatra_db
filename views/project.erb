@@ -1,7 +1,17 @@
-<div class="row">
-  <h1><%= @project.title %></h1>
 
-  <form action="/delete/<%=@project.id%>" method="post">
-    <button type="submit" class="btn btn-danger">Delete</button>
-  </form>
-<div>
+  <h1><%= @project.title %></h1>
+  <div class="row">
+    <form action="/delete/<%=@project.id%>" method="post">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+
+    <form action="/delete/<%=@project.id%>" method="post">
+      <button type="submit" class="btn btn-warning">Update</button>
+    </form>
+  </div>
+  <h2>Volunteers:</h2>
+  <ol>
+    <% @project.volunteers.each do |volunteer| %>
+      <a href="/project/<%= volunteer.id %>"><li><%= volunteer.name %></li></a>
+    <% end %>
+  </ol>
