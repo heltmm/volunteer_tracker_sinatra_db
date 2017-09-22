@@ -29,7 +29,7 @@
       <div class="form-group">
         <label for="project_id">Select Project to Volunteer for</label>
         <select class="form-control" name='project_id' type='text'>
-          <option value='nil'>Not Sure</option>
+          <option value="<%= Project.search('Unassigned').id %>">Not Sure</option>
           <% @projects.each() do |project| %>
             <option value="<%= project.id %>"> <%= project.title %> </option>
           <% end %>

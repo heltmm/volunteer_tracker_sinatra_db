@@ -10,7 +10,9 @@ class Project
     returned_projects = DB.exec("SELECT * FROM projects")
     projects = []
     returned_projects.each do |project|
-      projects.push(Project.new({title: project['title'], id: project['id'].to_i}))
+      if project['title'] != "Unassigned"
+        projects.push(Project.new({title: project['title'], id: project['id'].to_i}))
+      end
     end
     projects
   end
@@ -44,4 +46,10 @@ class Project
     end
     volunteers
   end
+
+  def self.search(title)
+    found_project = DB.exec("SELECT * FROM projects WHERE title = '#{title}';").first
+    Project.new({title: found_project['title'], id: found_project['id'].to_i})
+  end
+
 end

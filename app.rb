@@ -9,6 +9,8 @@ require 'pg'
 
 DB = PG.connect({dbname: 'volunteer_tracker'})
 
+Project.new({:title => "Unassigned"}).save
+
 get ('/') do
   @projects = Project.all
   @volunteers = Volunteer.all
