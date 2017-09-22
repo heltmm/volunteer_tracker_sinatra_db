@@ -1,0 +1,4 @@
+<h1>Volunteer: <%= @volunteer.name %></h1><br>
+
+<h2>Curretnly Assigned to:</h2><br>
+<h2><%= Project.find(@volunteer.id).title%></h2>

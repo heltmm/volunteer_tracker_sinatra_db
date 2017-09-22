@@ -1,7 +1,7 @@
 
   <h1><%= @project.title %></h1>
   <div class="row">
-    <form action="/delete/<%=@project.id%>" method="post">
+    <form action="/project/delete/<%=@project.id%>" method="post">
       <button type="submit" class="btn btn-danger">Delete</button>
     </form>
 
@@ -12,6 +12,6 @@
   <h2>Volunteers:</h2>
   <ol>
     <% @project.volunteers.each do |volunteer| %>
-      <a href="/project/<%= volunteer.id %>"><li><%= volunteer.name %></li></a>
+      <a href="/volunteer/<%= volunteer.id %>"><li><%= volunteer.name %></li></a>
     <% end %>
   </ol>
