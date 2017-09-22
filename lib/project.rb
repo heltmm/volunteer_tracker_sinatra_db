@@ -35,4 +35,13 @@ class Project
   def delete
     DB.exec("DELETE FROM projects WHERE id = #{@id}")
   end
+
+  def volunteers
+    returned_volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{@id}")
+    volunteers = []
+    returned_volunteers.each do |volunteer|
+      volunteers.push(Volunteer.new(:name => volunteer['name'], :project_id => volunteer['project_id'].to_i, :id => volunteer['id'].to_i))
+    end
+    volunteers
+  end
 end
