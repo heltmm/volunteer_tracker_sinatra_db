@@ -1,9 +1,18 @@
-<h1><%= @project.title %></h1>
+
 <div class="row">
-  <form action="/projects/delete/<%=@project.id%>" method="post">
-    <button type="submit" class="btn btn-danger">Delete Project</button>
-  </form>
-  <form action="/projects/<%=@project.id%>/edit" method="post">
-    <input type="text" name="title">
-    <button type="submit" class="btn btn-warning">Update Project</button>
-  </form>
+  <div class="col-lg-12">
+
+    <h1>Project: <%= @project.title %></h1>
+
+    <form action="/projects/delete/<%=@project.id%>" method="post">
+      <button type="submit" class="btn btn-danger">Delete Project</button>
+    </form>
+
+    <form action="/projects/<%=@project.id%>/edit" method="post">
+      <label for="title">Enter new Name</label>
+      <input type="text" name="title" class="form-control">
+      <button type="submit" class="btn btn-warning btn-block">Update Project</button>
+    </form>
+
+  </div>
+</div>

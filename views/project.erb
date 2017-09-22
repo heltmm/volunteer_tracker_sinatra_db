@@ -1,14 +1,14 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1>Project: <%= @project.title %></h1>
 
-  <h1><%= @project.title %></h1>
-  <div class="row">
-
-      <a href="/projects/<%=@project.id%>/edit"><button type="submit" class="btn btn-warning">Edit Project</button></a>
-
-
+    <a href="/projects/<%=@project.id%>/edit"><button type="submit" class="btn btn-warning">Edit Project</button></a>
+    
+    <h2>Volunteers:</h2>
+    <ol>
+      <% @project.volunteers.each do |volunteer| %>
+        <a href="/volunteer/<%= volunteer.id %>"><li><%= volunteer.name %></li></a>
+      <% end %>
+    </ol>
   </div>
-  <h2>Volunteers:</h2>
-  <ol>
-    <% @project.volunteers.each do |volunteer| %>
-      <a href="/volunteer/<%= volunteer.id %>"><li><%= volunteer.name %></li></a>
-    <% end %>
-  </ol>
+</div>

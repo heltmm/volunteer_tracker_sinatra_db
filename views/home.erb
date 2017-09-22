@@ -19,7 +19,7 @@
     <ol>
     <% @volunteers.each do |volunteer| %>
 
-      <li><a href="/volunteer/<%= volunteer.id %>"><%= volunteer.name %></a> <%= Project.find(volunteer.project_id).title %></li>
+      <a href="/volunteer/<%= volunteer.id %>"><li><%= volunteer.name %> <%= Project.find(volunteer.project_id).title %></li></a>
     <% end %>
     </ol>
     <form action="/volunteer" method="post">
