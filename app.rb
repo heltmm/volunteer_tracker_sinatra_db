@@ -48,6 +48,14 @@ post('/project/delete/:id') do
 end
 
 get('/volunteer/:id') do
+  @projects = Project.all
+  @volunteer = Volunteer.find(params[:id])
+  erb(:volunteer)
+end
+
+post('/volunteer/:id') do
+  
+  @projects = Project.all
   @volunteer = Volunteer.find(params[:id])
   erb(:volunteer)
 end

@@ -32,6 +32,7 @@ class Project
 
   def update(update_hash)
     @title = update_hash[:title]
+    DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id}")
   end
 
   def delete

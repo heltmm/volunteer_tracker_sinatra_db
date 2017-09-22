@@ -32,6 +32,8 @@ class Volunteer
   def update(update_hash)
     @name = update_hash[:name]
     @project_id = update_hash[:project_id]
+    DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id}")
+    DB.exec("UPDATE volunteers SET project_id = #{@project_id} WHERE id = #{@id}")
   end
 
   def delete

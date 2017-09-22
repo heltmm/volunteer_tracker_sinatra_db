@@ -84,6 +84,7 @@ describe Project do
 
   context '#delete' do
     it 'allows a user to delete a project' do
+      Project.new({:title => "Unassigned"}).save
       project = Project.new({:title => 'Teaching Kids to Code'})
       project.save
       project.delete
