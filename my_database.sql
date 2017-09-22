@@ -35,16 +35,16 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: project; Type: TABLE; Schema: public; Owner: Guest
+-- Name: projects; Type: TABLE; Schema: public; Owner: Guest
 --
 
-CREATE TABLE project (
+CREATE TABLE projects (
     id integer NOT NULL,
     title character varying
 );
 
 
-ALTER TABLE project OWNER TO "Guest";
+ALTER TABLE projects OWNER TO "Guest";
 
 --
 -- Name: project_id_seq; Type: SEQUENCE; Schema: public; Owner: Guest
@@ -64,21 +64,21 @@ ALTER TABLE project_id_seq OWNER TO "Guest";
 -- Name: project_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Guest
 --
 
-ALTER SEQUENCE project_id_seq OWNED BY project.id;
+ALTER SEQUENCE project_id_seq OWNED BY projects.id;
 
 
 --
--- Name: volunteer; Type: TABLE; Schema: public; Owner: Guest
+-- Name: volunteers; Type: TABLE; Schema: public; Owner: Guest
 --
 
-CREATE TABLE volunteer (
+CREATE TABLE volunteers (
     id integer NOT NULL,
     name character varying,
     project_id integer
 );
 
 
-ALTER TABLE volunteer OWNER TO "Guest";
+ALTER TABLE volunteers OWNER TO "Guest";
 
 --
 -- Name: volunteer_id_seq; Type: SEQUENCE; Schema: public; Owner: Guest
@@ -98,29 +98,21 @@ ALTER TABLE volunteer_id_seq OWNER TO "Guest";
 -- Name: volunteer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Guest
 --
 
-ALTER SEQUENCE volunteer_id_seq OWNED BY volunteer.id;
+ALTER SEQUENCE volunteer_id_seq OWNED BY volunteers.id;
 
 
 --
--- Name: project id; Type: DEFAULT; Schema: public; Owner: Guest
+-- Name: projects id; Type: DEFAULT; Schema: public; Owner: Guest
 --
 
-ALTER TABLE ONLY project ALTER COLUMN id SET DEFAULT nextval('project_id_seq'::regclass);
-
-
---
--- Name: volunteer id; Type: DEFAULT; Schema: public; Owner: Guest
---
-
-ALTER TABLE ONLY volunteer ALTER COLUMN id SET DEFAULT nextval('volunteer_id_seq'::regclass);
+ALTER TABLE ONLY projects ALTER COLUMN id SET DEFAULT nextval('project_id_seq'::regclass);
 
 
 --
--- Data for Name: project; Type: TABLE DATA; Schema: public; Owner: Guest
+-- Name: volunteers id; Type: DEFAULT; Schema: public; Owner: Guest
 --
 
-COPY project (id, title) FROM stdin;
-\.
+ALTER TABLE ONLY volunteers ALTER COLUMN id SET DEFAULT nextval('volunteer_id_seq'::regclass);
 
 
 --
@@ -131,10 +123,10 @@ SELECT pg_catalog.setval('project_id_seq', 1, false);
 
 
 --
--- Data for Name: volunteer; Type: TABLE DATA; Schema: public; Owner: Guest
+-- Data for Name: projects; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
-COPY volunteer (id, name, project_id) FROM stdin;
+COPY projects (id, title) FROM stdin;
 \.
 
 
@@ -146,18 +138,26 @@ SELECT pg_catalog.setval('volunteer_id_seq', 1, false);
 
 
 --
--- Name: project project_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest
+-- Data for Name: volunteers; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
-ALTER TABLE ONLY project
+COPY volunteers (id, name, project_id) FROM stdin;
+\.
+
+
+--
+-- Name: projects project_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest
+--
+
+ALTER TABLE ONLY projects
     ADD CONSTRAINT project_pkey PRIMARY KEY (id);
 
 
 --
--- Name: volunteer volunteer_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest
+-- Name: volunteers volunteer_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest
 --
 
-ALTER TABLE ONLY volunteer
+ALTER TABLE ONLY volunteers
     ADD CONSTRAINT volunteer_pkey PRIMARY KEY (id);
 
 
