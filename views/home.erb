@@ -8,7 +8,7 @@
     </ol>
     <form action="/project" method="post">
       <div class="form-group">
-        <label for="name">Enter name of Project</label>
+        <label for="title">Enter name of Project</label>
         <input type="text" name="title" class="form-control">
       </div>
       <button type="submit" class="btn btn-primary btn-block">Create new Project</button>
@@ -18,7 +18,8 @@
     <h2>Volunteers</h2>
     <ol>
     <% @volunteers.each do |volunteer| %>
-      <li><%= volunteer.name %> <%= Project.find(volunteer.project_id).title %></li>
+
+      <a href="/volunteer/<%= volunteer.id %>"><li><%= volunteer.name %> <%= Project.find(volunteer.project_id).title %></li></a>
     <% end %>
     </ol>
     <form action="/volunteer" method="post">

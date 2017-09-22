@@ -8,7 +8,7 @@
 
 <h2><%= Project.find(@volunteer.project_id).title%></h2><br>
 
-<form action="/volunteer/<%= @volunteer.id %>" method="post">
+<form action="/volunteer/update/<%= @volunteer.id %>" method="post">
   <div class="form-group">
     <label for="project_id">Assign to Project</label>
     <input type="hidden" name="name" value="<%= @volunteer.name %>">

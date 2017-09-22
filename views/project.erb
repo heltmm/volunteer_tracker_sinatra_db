@@ -5,7 +5,8 @@
       <button type="submit" class="btn btn-danger">Delete</button>
     </form>
 
-    <form action="/delete/<%=@project.id%>" method="post">
+    <form action="/project/update/<%=@project.id%>" method="post">
+      <input type="text" name="title">
       <button type="submit" class="btn btn-warning">Update</button>
     </form>
   </div>
